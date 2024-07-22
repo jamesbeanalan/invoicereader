@@ -41,7 +41,11 @@ def extract_file_info(filename):
                         index = text_content.index('Invoice Date')
                         payer_name = text_content[index + 4]
                         if payer_name == "Credit Term":
-                            payer_name = text_content[index + 8]
+                            index = text_content.index("Credit Term")
+                            if text_content[index+3] == '30 days' or text_content[index+3] == "Immediate":
+                                payer_name = text_content[index + 4]
+                            else:
+                                payer_name = text_content[index + 3]
                         print(f"payer name: {payer_name}")
                         index = text_content.index('Invoice No.')
                         invoice_number = text_content[index + 3]
@@ -235,4 +239,3 @@ directory = r"C:\Users\alanbean\Downloads\Additional\PDF_compiler\210624"
 dataframe1 = pandas.read_excel('Payment Schedule.xlsx',sheet_name = None)
 
 rename_files(directory, dataframe1)
-               
