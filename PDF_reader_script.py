@@ -54,7 +54,6 @@ def extract_file_info(filename):
                 print()  # Print empty line for separation between files
             return payer_name,invoice_number,filename
 
-#extract_file_info("(01) TINV-24-008461 - AW BENG HOCK.pdf")
 
 # Iterate over files in directory
 def files_in_folder(directory):
@@ -205,13 +204,14 @@ def set_dictionary(workbook):
             print()
     return
 
-def rename_files1(directory, df):
+def rename_files(directory, df):
     lsts = list_folders(directory)
     print(lsts)
     dict = set_dictionary(df)
     for folders in lsts:
         temp = directory + "\\" +  folders
         print(f"folder location: {folders}")
+        print()
         for root, _, files in os.walk(temp):
             for filename in files:
                 print(filename)
@@ -231,8 +231,8 @@ def rename_files1(directory, df):
                     print()
     return   
 
-directory = r"C:\Users\alanbean\Downloads\Additional\PDF_compiler\trial"
-dataframe1 = pandas.read_excel('(01) Payment Schedule.xlsx',sheet_name = None)
+directory = r"C:\Users\alanbean\Downloads\Additional\PDF_compiler\210624"
+dataframe1 = pandas.read_excel('Payment Schedule.xlsx',sheet_name = None)
 
-rename_files1(directory, dataframe1)
+rename_files(directory, dataframe1)
                
