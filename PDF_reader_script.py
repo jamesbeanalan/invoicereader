@@ -235,7 +235,7 @@ def rename_files(directory, df):
                     print()
     return   
 
-directory = r"C:\Users\alanbean\Downloads\Additional\PDF_compiler\210624"
-dataframe1 = pandas.read_excel('Payment Schedule.xlsx',sheet_name = None)
+directory = r"your directory"
+dataframe1 = pandas.read_excel('your data set',sheet_name = None)
 
 rename_files(directory, dataframe1)
